@@ -1,3 +1,6 @@
+import json
+from typing import Optional
+
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -6,8 +9,22 @@ HEADERS = ["Sana", "Turi", "Kategoriya", "Summa", "Valyuta", "Izoh"]
 
 
 class SheetsService:
-    def __init__(self, credentials_path: str, spreadsheet_id: str):
-        creds = Credentials.from_service_account_file(credentials_path, scopes=SCOPES)
+    def __init__(
+        self,
+        spreadsheet_id: str,
+        credentials_path: Optional[str] = None,
+        credentials_json: Optional[str] = None,
+    ):
+        if credentials_json:
+            info = json.loads(credentials_json)
+            creds = Credentials.from_service_account_info(info, scopes=SCOPES)
+        elif credentials_path:
+            creds = Credentials.from_service_account_file(credentials_path, scopes=SCOPES)
+        else:
+            raise RuntimeError(
+                "Google hisob ma'lumotlari topilmadi: GOOGLE_CREDENTIALS_JSON yoki "
+                "GOOGLE_CREDENTIALS_PATH'dan birini belgilang."
+            )
         self.client = gspread.authorize(creds)
         self.spreadsheet = self.client.open_by_key(spreadsheet_id)
 

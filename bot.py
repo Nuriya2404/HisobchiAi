@@ -21,7 +21,11 @@ async def main():
 
     ai_service = AIService(config.openai_api_key, config.openai_model)
     speech_service = SpeechService(config.openai_api_key)
-    sheets_service = SheetsService(config.google_credentials_path, config.google_spreadsheet_id)
+    sheets_service = SheetsService(
+        spreadsheet_id=config.google_spreadsheet_id,
+        credentials_path=config.google_credentials_path,
+        credentials_json=config.google_credentials_json,
+    )
 
     bot = Bot(token=config.telegram_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp = Dispatcher()

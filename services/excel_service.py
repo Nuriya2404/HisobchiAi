@@ -5,7 +5,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-HEADERS = ["Sana", "Turi", "Kategoriya", "Summa", "Valyuta", "Izoh"]
+HEADERS = ["Sana", "Turi", "Kategoriya", "Summa", "Valyuta", "Izoh", "Mahsulot", "Miqdor", "Birlik narxi"]
 
 
 def build_excel(records: list[dict], chat_id: int) -> str:

@@ -1,8 +1,8 @@
 # Hisobchi AI — Telegram bot
 
 Ikki funksiyali, shaxsiy foydalanish uchun bot (faqat `TELEGRAM_ALLOWED_USER_ID`da ko'rsatilgan foydalanuvchi bilan ishlaydi):
-1. **Hisobchi** — matn yoki ovozli xabarni AI tahlil qilib, daromad/xarajat sifatida Google Sheets'ga yozadi; `/excel` buyrug'i bilan Excel faylida eksport qilib beradi.
-2. **AI Maslahatchi** — yuborilgan hujjatni (PDF, rasm, Word, matn) professional tahlilchi sifatida chuqur tahlil qiladi.
+1. **Hisobchi** — matn, ovozli xabar yoki **chek/hisob-kitob rasmini** AI tahlil qilib, daromad/xarajat (turi, kategoriya, mahsulot, miqdor, birlik narxi, jami summa) sifatida Google Sheets'ga yozadi; `/excel` buyrug'i bilan Excel faylida eksport qilib beradi. Chekdagi har bir mahsulot alohida qator sifatida qo'shiladi. Summani aniqlab bo'lmasa, bot uni so'rab oladi.
+2. **AI Maslahatchi** — yuborilgan hujjatni (PDF, Word, matn) professional tahlilchi sifatida chuqur tahlil qiladi.
 
 Barcha AI vazifalari (matn tahlili, hujjat tahlili, ovozni matnga aylantirish) faqat **OpenAI** orqali bajariladi — Anthropic kaliti shart emas.
 

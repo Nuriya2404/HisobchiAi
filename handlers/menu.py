@@ -13,8 +13,9 @@ router = Router()
 
 ADVISOR_HINT_TEXT = (
     "🧠 <b>AI Maslahatchi</b>\n\n"
-    "Menga PDF, rasm (jpg/png) yoki Word/matn fayl yuboring — professional tahlilchi sifatida "
-    "uni chuqur tahlil qilib beraman."
+    "Menga PDF, Word yoki matn fayl yuboring — professional tahlilchi sifatida uni chuqur tahlil qilib beraman.\n\n"
+    "📸 Chek yoki hisob-kitob <b>rasmini</b> yuborsangiz, uni Hisobchi avtomatik o'qib, Google Sheets "
+    "jadvaliga qo'shib qo'yadi."
 )
 
 

@@ -37,24 +37,6 @@ async def handle_document(message: Message, bot, ai_service: AIService):
     await _run_analysis(message, ai_service, blocks, filename)
 
 
-@router.message(F.photo)
-async def handle_photo(message: Message, bot, ai_service: AIService):
-    await message.answer("🖼 Rasm tahlil qilinmoqda, biroz kuting...")
-
-    photo = message.photo[-1]
-    file = await bot.get_file(photo.file_id)
-    with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as tmp:
-        tmp_path = tmp.name
-
-    try:
-        await bot.download_file(file.file_path, tmp_path)
-        blocks = prepare_content_blocks(tmp_path, "rasm.jpg")
-    finally:
-        os.remove(tmp_path)
-
-    await _run_analysis(message, ai_service, blocks, "rasm.jpg")
-
-
 async def _run_analysis(message: Message, ai_service: AIService, blocks: list, filename: str):
     try:
         analysis = ai_service.analyze_document(blocks, filename)
